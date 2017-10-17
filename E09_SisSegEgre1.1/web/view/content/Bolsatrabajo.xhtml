@@ -11,7 +11,7 @@
 
             <ui:define name="content">
                 <h:form id="form">
-                    <p:commandButton value="Nuevo" onclick="PF('createBolDialog').show()"/>
+                    <p:commandButton value="Nuevo" onclick="PF('createBolDialog').show()" rendered="#{userController.user.tipo_user == 1}"/>
                     <p:carousel id="carouselBol" value="#{bolsatController.item}" headerText="Bolsa de Trabajo" var="bol" itemStyle="text-align:center" responsive="true">
                         <p:panelGrid columns="1" style="width:100%;margin:10px 0px;height: 300px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
                             
