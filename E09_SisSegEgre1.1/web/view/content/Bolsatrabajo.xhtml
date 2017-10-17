@@ -11,7 +11,8 @@
 
             <ui:define name="content">
                 <h:form id="form">
-                    <p:carousel value="#{bolsatController.item}" headerText="Bolsa de Trabajo" var="bol" itemStyle="text-align:center" responsive="true">
+                    <p:commandButton value="Nuevo" onclick="PF('createBolDialog').show()"/>
+                    <p:carousel id="carouselBol" value="#{bolsatController.item}" headerText="Bolsa de Trabajo" var="bol" itemStyle="text-align:center" responsive="true">
                         <p:panelGrid columns="1" style="width:100%;margin:10px 0px;height: 300px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
                             
                             <h:outputText value="Especialidad:" />
@@ -25,6 +26,20 @@
 
                         </p:panelGrid>
                     </p:carousel>
+                    
+                    <p:dialog id="createBolDlg" widgetVar="createBolDialog" header="Nueva Propuesta" modal="true">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Especialidad"/>
+                            <p:inputText value="#{bolsatController.bol.esp_bol}"/>
+                            <p:outputLabel value="Empresa"/>
+                            <p:inputText value="#{bolsatController.bol.nom_emp}"/>
+                            <p:outputLabel value="Descripción"/>
+                            <p:inputText value="#{bolsatController.bol.des_bol}"/>
+                        </h:panelGrid>
+                        <p:separator/>
+                        <p:commandButton value="Ingresar" actionListener="#{bolsatController.agregarBol()}" update="carouselBol"/>
+                    </p:dialog>
+                    
                 </h:form>
             </ui:define>
 

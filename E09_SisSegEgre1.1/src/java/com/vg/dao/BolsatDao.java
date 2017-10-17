@@ -33,4 +33,18 @@ public class BolsatDao extends Dao{
         return lista;
     }
     
+    public void agregarBol(Bolsat bol) throws Exception{
+        this.Conexion();
+        try {
+            String sql = "INSERT INTO BOLSATRABAJO(ESP_BOL,NOM_EMP,DES_BOL) VALUES(?,?,?)";
+            PreparedStatement ps = this.getCn().prepareStatement(sql);
+            ps.setString(1, bol.getEsp_bol());
+            ps.setString(2, bol.getNom_emp());
+            ps.setString(3, bol.getDes_bol());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+    
 }

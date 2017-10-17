@@ -36,6 +36,15 @@ public class BolsatController implements Serializable {
             throw e;
         }
     }
+    
+    public void agregarBol() throws Exception{
+        try {
+            dao.agregarBol(bol);
+            lstBolsaTrabajo();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 
     public Bolsat getBol() {
         return bol;
