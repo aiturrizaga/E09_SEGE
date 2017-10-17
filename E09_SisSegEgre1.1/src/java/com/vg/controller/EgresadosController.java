@@ -5,6 +5,7 @@ import com.vg.model.Egresados;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,15 @@ public class EgresadosController implements Serializable {
         } catch (Exception e) { 
                 Logger.getLogger(EgresadosController.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+    
+    public void egresarAlumno() throws Exception{
+        try {
+            dao.egresarAlumno(alm);
+            listarAlumnos();
+        } catch (SQLException e) {
+        }
+    
     }
     
     public void listarEgresados() throws Exception{

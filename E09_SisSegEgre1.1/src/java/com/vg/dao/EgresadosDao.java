@@ -67,5 +67,18 @@ public class EgresadosDao extends Dao{
         return lista;
     }
     
+    public void egresarAlumno(Egresados eg) throws SQLException {
+        this.Conexion();
+        try {
+            String sql = "UPDATE PERSONAS SET EST_PER = ? WHERE COD_PER = ?";
+            PreparedStatement ps = this.getCn().prepareStatement(sql);
+            ps.setString(1, "E");
+            ps.setInt(2, eg.getCOD_PER());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+        }
+
+    }
+    
     
 }

@@ -12,9 +12,9 @@
 
             <ui:define name="content">
 
-                <h:form>
+                <h:form id="from">
                     <p:commandButton value="Alumnos" onclick="PF('alumnos').show()" />
-                    <p:dataTable value="#{egresadosController.eg}" var="eg"   >
+                    <p:dataTable value="#{egresadosController.eg}" var="eg"  id="egresados" >
                         <p:column> 
                             <p:rowToggler/>
                         </p:column>
@@ -74,7 +74,7 @@
 
                         </p:dataTable>
                         <p:contextMenu for="alumn" >
-                            <p:menuitem value="Egresar" />
+                            <p:menuitem value="Egresar" actionListener="#{egresadosController.egresarAlumno()}" update="alumn egresados"/>
                         </p:contextMenu>  
                     </p:dialog>
 
