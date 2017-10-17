@@ -5,11 +5,11 @@ import com.vg.model.Empresas;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
-import oracle.net.aso.e;
 
 @Named(value = "empresaController")
 @SessionScoped
@@ -17,35 +17,64 @@ public class EmpresaController implements Serializable {
 
     Empresas emp = new Empresas();
     EmpresaDao dao;
-    private List<Empresas> item;
-    private Empresas selected;
-    private String est = "A";
+    private List<Empresas> lstActivo;
+    private List<Empresas> lstInactivo;
+    private Empresas selectedActivo;
+    private Empresas selectedInactivo;
     
     @PostConstruct
     public void inicio(){
         dao = new EmpresaDao();
         try {
-            listarEmpresas();
+            listarEmpresasActivo();
+            listarEmpresasInActivo();
         } catch (Exception ex) {
             Logger.getLogger(EmpresaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void listarEmpresas() throws Exception{
+    public void listarEmpresasActivo() throws Exception{
         try {
-            item = dao.lstEmpresas(est);
+            lstActivo = dao.lstEmpresasActivo();
         } catch (Exception e) {
             throw e;
         }
-    }
-    
+    }  
+    public void listarEmpresasInActivo() throws Exception{
+        try {
+            lstInactivo = dao.lstEmpresasInActivo();
+        } catch (Exception e) {
+            throw e;
+        }
+    }   
     public void agregar() throws Exception{
         try {
             dao.agregarEmp(emp);
-            listarEmpresas();
+            listarEmpresasActivo();
+            listarEmpresasInActivo();
         } catch (Exception e) {
             throw e;
         }
+    }  
+    public void inhabilitarEmp() throws Exception{
+        try {
+            dao.inhabilitarEmp(selectedActivo);
+            listarEmpresasActivo();
+            listarEmpresasInActivo();
+        } catch (SQLException e) {
+            throw e;
+        }
+    
+    }
+    public void habilitarEmp() throws Exception{
+        try {
+            dao.habilitarEmp(selectedInactivo);
+            listarEmpresasActivo();
+            listarEmpresasInActivo();
+        } catch (SQLException e) {
+            throw e;
+        }
+    
     }
 
     public Empresas getEmp() {
@@ -56,28 +85,49 @@ public class EmpresaController implements Serializable {
         this.emp = emp;
     }
 
-    public List<Empresas> getItem() {
-        return item;
+    public EmpresaDao getDao() {
+        return dao;
     }
 
-    public void setItem(List<Empresas> item) {
-        this.item = item;
+    public void setDao(EmpresaDao dao) {
+        this.dao = dao;
     }
 
-    public Empresas getSelected() {
-        return selected;
+    public List<Empresas> getLstActivo() {
+        return lstActivo;
     }
 
-    public void setSelected(Empresas selected) {
-        this.selected = selected;
+    public void setLstActivo(List<Empresas> lstActivo) {
+        this.lstActivo = lstActivo;
     }
 
-    public String getEst() {
-        return est;
+    public List<Empresas> getLstInactivo() {
+        return lstInactivo;
     }
 
-    public void setEst(String est) {
-        this.est = est;
+    public void setLstInactivo(List<Empresas> lstInactivo) {
+        this.lstInactivo = lstInactivo;
+    }
+
+    public Empresas getSelectedActivo() {
+        return selectedActivo;
+    }
+
+    public void setSelectedActivo(Empresas selectedActivo) {
+        this.selectedActivo = selectedActivo;
+    }
+
+    public Empresas getSelectedInactivo() {
+        return selectedInactivo;
+    }
+
+    public void setSelectedInactivo(Empresas selectedInactivo) {
+        this.selectedInactivo = selectedInactivo;
     }
     
+    
+    
+
+    
+  
 }
