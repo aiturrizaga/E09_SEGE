@@ -36,6 +36,7 @@ public class EgresadosController implements Serializable {
         try {
             dao.egresarAlumno(alm);
             listarAlumnos();
+            listarEgresados();
         } catch (SQLException e) {
         }
     
