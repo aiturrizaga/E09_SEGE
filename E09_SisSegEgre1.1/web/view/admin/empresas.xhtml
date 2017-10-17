@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/#{userController.user.template}">
+
+            <ui:define name="content">
+                <h:form>
+                    <p:commandButton value="Nueva Empresa" onclick="PF('createEmpDialog').show()"/>
+                    
+                    <p:dataTable id="tblEmpresas" value="#{empresaController.item}" var="emp">
+                        <p:column headerText="RUC">
+                            <p:outputLabel value="#{emp.ruc_emp}"/>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{emp.nom_emp}"/>
+                        </p:column>
+                        <p:column headerText="Encargado">
+                            <p:outputLabel value="#{emp.enc_emp}"/>
+                        </p:column>
+                        <p:column headerText="Dirección">
+                            <p:outputLabel value="#{emp.dir_emp}"/>
+                        </p:column>
+                        <p:column headerText="Telefono">
+                            <p:outputLabel value="#{emp.tel1_emp}"/>
+                        </p:column>
+                    </p:dataTable>
+                    
+                    <p:dialog id="createEmpDlg" widgetVar="createEmpDialog" header="Nueva Empresa" modal="true">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="RUC"/>
+                            <p:inputText value="#{empresaController.emp.ruc_emp}"/>
+                            <p:outputLabel value="Nombre"/>
+                            <p:inputText value="#{empresaController.emp.nom_emp}"/>
+                            <p:outputLabel value="Encargado"/>
+                            <p:inputText value="#{empresaController.emp.enc_emp}"/>
+                            <p:outputLabel value="Dirección"/>
+                            <p:inputText value="#{empresaController.emp.dir_emp}"/>
+                            <p:outputLabel value="Telefono"/>
+                            <p:inputText value="#{empresaController.emp.tel1_emp}"/>
+                            <p:outputLabel value="Referencia"/>
+                            <p:inputText value="#{empresaController.emp.ref_emp}"/>
+                        </h:panelGrid>
+                        <p:separator/>
+                        <p:commandButton value="Registrar" actionListener="#{empresaController.agregar()}"/>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
