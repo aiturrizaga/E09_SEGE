@@ -61,6 +61,7 @@ public class EmpresaController implements Serializable {
             dao.agregarEmp(emp);
             listarEmpresasActivo();
             listarEmpresasInActivo();
+            countEmpresaActiva();
         } catch (Exception e) {
             throw e;
         }
@@ -70,6 +71,7 @@ public class EmpresaController implements Serializable {
             dao.inhabilitarEmp(selectedActivo);
             listarEmpresasActivo();
             listarEmpresasInActivo();
+            countEmpresaActiva();
         } catch (SQLException e) {
             throw e;
         }
@@ -80,6 +82,7 @@ public class EmpresaController implements Serializable {
             dao.habilitarEmp(selectedInactivo);
             listarEmpresasActivo();
             listarEmpresasInActivo();
+            countEmpresaActiva();
         } catch (SQLException e) {
             throw e;
         }

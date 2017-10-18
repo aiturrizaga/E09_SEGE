@@ -13,11 +13,11 @@ public class EgresadosDao extends Dao{
     ResultSet rs;
         try {
             this.Conexion();
-            String sql = "SELECT COUNT(COD_PER) AS CODPER FROM PERSONAS WHERE EST_PER = 'E'";
+            String sql = "SELECT COUNT(COD_PER) AS COUNTPER FROM PERSONAS WHERE EST_PER = 'E'";
             PreparedStatement ps = this.getCn().prepareCall(sql);
             rs = ps.executeQuery();
             rs.next();
-            es.setCOUNT_PER(rs.getString("CODPER"));
+            es.setCOUNT_PER(rs.getString("COUNTPER"));
         } catch (SQLException e) {
         }
     }

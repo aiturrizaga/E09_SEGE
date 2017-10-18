@@ -13,14 +13,15 @@ public class EmpresaDao extends Dao{
     ResultSet rs;
         try {
             this.Conexion();
-            String sql = "SELECT COUNT(COD_EMP) AS CODEMP FROM EMPRESAS WHERE EST_EMP = 'A'";
+            String sql = "SELECT COUNT(COD_EMP) AS COUNTEMP FROM EMPRESAS WHERE EST_EMP = 'A'";
             PreparedStatement ps = this.getCn().prepareCall(sql);
             rs = ps.executeQuery();
             rs.next();
-            emp.setCount_emp(rs.getString("CODEMP"));
+            emp.setCount_emp(rs.getString("COUNTEMP"));
         } catch (SQLException e) {
         }
     }
+    
     public List<Empresas> lstEmpresasActivo() throws Exception{
         List<Empresas> lista;
         ResultSet rs;
