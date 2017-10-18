@@ -28,9 +28,18 @@ public class EmpresaController implements Serializable {
         try {
             listarEmpresasActivo();
             listarEmpresasInActivo();
+            countEmpresaActiva();
         } catch (Exception ex) {
             Logger.getLogger(EmpresaController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void countEmpresaActiva(){
+        try {
+            dao.countEmpresasactivas(emp);
+        } catch (Exception e) {
+        }
+    
     }
     
     public void listarEmpresasActivo() throws Exception{

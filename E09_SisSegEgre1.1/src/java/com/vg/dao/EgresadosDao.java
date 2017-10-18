@@ -7,7 +7,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class EgresadosDao extends Dao{
+    public void countEgresadosActivos(Egresados es){
+    ResultSet rs;
+        try {
+            this.Conexion();
+            String sql = "SELECT COUNT(COD_PER) AS CODPER FROM PERSONAS WHERE EST_PER = 'E'";
+            PreparedStatement ps = this.getCn().prepareCall(sql);
+            rs = ps.executeQuery();
+            rs.next();
+            es.setCOUNT_PER(rs.getString("CODPER"));
+        } catch (SQLException e) {
+        }
+    }
     
     public List<Egresados> lstEgresados() throws Exception{
         List<Egresados> lista;

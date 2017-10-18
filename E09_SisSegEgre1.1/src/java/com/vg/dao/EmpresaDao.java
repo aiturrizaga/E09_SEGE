@@ -8,7 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpresaDao extends Dao{
-
+    
+    public void countEmpresasactivas(Empresas emp){
+    ResultSet rs;
+        try {
+            this.Conexion();
+            String sql = "SELECT COUNT(COD_EMP) AS CODEMP FROM EMPRESAS WHERE EST_EMP = 'A'";
+            PreparedStatement ps = this.getCn().prepareCall(sql);
+            rs = ps.executeQuery();
+            rs.next();
+            emp.setCount_emp(rs.getString("CODEMP"));
+        } catch (SQLException e) {
+        }
+    }
     public List<Empresas> lstEmpresasActivo() throws Exception{
         List<Empresas> lista;
         ResultSet rs;

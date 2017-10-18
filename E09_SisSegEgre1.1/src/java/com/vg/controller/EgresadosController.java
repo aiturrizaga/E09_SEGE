@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 @SessionScoped
 public class EgresadosController implements Serializable {
     
+    Egresados es = new Egresados();
     EgresadosDao dao;
     private List<Egresados> eg;
     private List<Egresados> al;
@@ -27,9 +28,18 @@ public class EgresadosController implements Serializable {
         try {
             listarEgresados();
             listarAlumnos();
+            countEgresadosActiva();
         } catch (Exception e) { 
                 Logger.getLogger(EgresadosController.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+    
+    public void countEgresadosActiva(){
+        try {
+            dao.countEgresadosActivos(es);
+        } catch (Exception e) {
+        }
+    
     }
     
     public void egresarAlumno() throws Exception{
@@ -59,6 +69,16 @@ public class EgresadosController implements Serializable {
     
     }
 
+    public Egresados getEs() {
+        return es;
+    }
+
+    public void setEs(Egresados es) {
+        this.es = es;
+    }
+    
+    
+        
     public EgresadosDao getDao() {
         return dao;
     }

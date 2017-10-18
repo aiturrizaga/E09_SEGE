@@ -3,6 +3,7 @@ package com.vg.model;
 public class Empresas {
 
     private int cod_emp;
+    private String count_emp;
     private String nom_emp;
     private String enc_emp;
     private String ruc_emp;
@@ -12,6 +13,15 @@ public class Empresas {
     private String ref_emp;
     private String est_emp;
     private String ubigeo;
+
+    public String getCount_emp() {
+        return count_emp;
+    }
+
+    public void setCount_emp(String count_emp) {
+        this.count_emp = count_emp;
+    }
+    
 
     public int getCod_emp() {
         return cod_emp;

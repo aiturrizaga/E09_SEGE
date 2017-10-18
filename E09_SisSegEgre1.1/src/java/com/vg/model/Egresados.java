@@ -7,6 +7,7 @@ public class Egresados {
     private int 
             COD_PER;
     private String 
+            COUNT_PER,
             NOM_PER,
             APE_PER,
             DNI_PER,
@@ -16,6 +17,16 @@ public class Egresados {
             EST_PER;
     private Date 
             FCH_NAC_PER;
+
+    public String getCOUNT_PER() {
+        return COUNT_PER;
+    }
+
+    public void setCOUNT_PER(String COUNT_PER) {
+        this.COUNT_PER = COUNT_PER;
+    }
+    
+    
 
     public int getCOD_PER() {
         return COD_PER;
