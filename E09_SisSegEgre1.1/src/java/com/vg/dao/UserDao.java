@@ -29,17 +29,17 @@ public class UserDao extends Dao {
                 usu.setNom_user(rs.getString("NOM_USER"));
                 usu.setPass_user(rs.getString("PASS_USER"));
                 usu.setTipo_user(rs.getInt("TIPO_USER"));
-                switch (usu.getTipo_user()) {
-                    case 1:
-                        usu.setTemplate("TemplateAdmin.xhtml");
-                        break;
-                    case 2:
-                        usu.setTemplate("TemplateProfe.xhtml");
-                        break;
-                    case 3:
-                        usu.setTemplate("TemplateUser.xhtml");
-                        break;
-                }
+//                switch (usu.getTipo_user()) {
+//                    case 1:
+//                        usu.setTemplate("TemplateAdmin.xhtml");
+//                        break;
+//                    case 2:
+//                        usu.setTemplate("TemplateProfe.xhtml");
+//                        break;
+//                    case 3:
+//                        usu.setTemplate("TemplateUser.xhtml");
+//                        break;
+//                }
             } else {
                 usu = null;
             }

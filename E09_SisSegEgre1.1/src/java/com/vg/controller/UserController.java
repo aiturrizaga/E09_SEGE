@@ -34,7 +34,7 @@ public class UserController implements Serializable {
                 listarExpUser();
                 switch (user.getTipo_user()) {
                     case 1:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SEGE/faces/view/content/experienceuser.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SEGE/faces/view/admin/dashboard.xhtml");
                         break;
                     case 2:
                         FacesContext.getCurrentInstance().getExternalContext().redirect("/SEGE/faces/view/content/experienceuser.xhtml");

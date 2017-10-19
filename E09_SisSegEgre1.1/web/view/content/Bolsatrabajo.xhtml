@@ -7,7 +7,7 @@
 
     <body>
 
-        <ui:composition template="./../template/#{userController.user.template}">
+        <ui:composition template="./../template/TemplateOne.xhtml">
 
             <ui:define name="content">
                 <h:form id="form">
@@ -15,14 +15,14 @@
                     <p:carousel id="carouselBol" value="#{bolsatController.item}" headerText="Bolsa de Trabajo" var="bol" itemStyle="text-align:center" responsive="true">
                         <p:panelGrid columns="1" style="width:100%;margin:10px 0px;height: 300px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
                             
-                            <h:outputText value="Especialidad:" />
-                            <h:outputText value="#{bol.esp_bol}" />
+                            <h:outputText value="Especialidad:" style="font-weight: bold;color: #000" />
+                            <h:outputText value="#{bol.esp_bol}" style="color: #000"/>
 
-                            <h:outputText value="Empresa:" />
-                            <h:outputText value="#{bol.nom_emp}" />
+                            <h:outputText value="Empresa:" style="font-weight: bold;color: #000" />
+                            <h:outputText value="#{bol.nom_emp}" style="color: #000"/>
 
-                            <h:outputText value="Descripción:" />
-                            <h:outputText value="#{bol.des_bol}"/>
+                            <h:outputText value="Descripción:" style="font-weight: bold;color: #000"/>
+                            <h:outputText value="#{bol.des_bol}" style="color: #000"/>
 
                         </p:panelGrid>
                     </p:carousel>
