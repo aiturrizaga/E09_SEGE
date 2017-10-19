@@ -9,12 +9,22 @@
 
         <ui:composition template="./../template/TemplateOne.xhtml">
 
+            <ui:define name="none-content">
+                <h:form>
+                    <div class="row page-titles">
+                        <div class="col-md-5 align-self-center">
+                            <h3 class="text-themecolor">Lista de Empresas</h3>
+                        </div>
+                        <div class="col-md-7">
+                            <p:commandButton value="Habilitar Empresa" onclick="PF('dialogUpdate').show()" class="look secondary" style="float: right"/>
+                            <p:commandButton value="Nueva Empresa" onclick="PF('createEmpDialog').show()" class="look primary" style="float: right"/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+            
             <ui:define name="content">
                 <h:form id="from">
-                    <p:commandButton value="Nueva Empresa" onclick="PF('createEmpDialog').show()" style="float: left"/>
-                    <p:commandButton value="Habilitar Empresa" onclick="PF('dialogUpdate').show()" style="float: right"/>
-                    <br />
-                    <br />
                     <p:dataTable 
                         id="tblEmpresasActivas" 
                         value="#{empresaController.lstActivo}" 

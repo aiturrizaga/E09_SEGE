@@ -10,12 +10,25 @@
 
         <ui:composition template="./../template/TemplateOne.xhtml">
 
-            <ui:define name="content">
+            <ui:define name="none-content">
+                <h:form>
+                    <div class="row page-titles">
+                        <div class="col-md-5 align-self-center">
+                            <h3 class="text-themecolor">Lista de Egresados</h3>
+                        </div>
+                        <div class="col-md-7">
+                            <p:commandButton value="Ver Alumnos" onclick="PF('alumnos').show()" 
+                                             class="look primary" style="float: right"/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
 
+            <ui:define name="content">
                 <h:form id="from">
-                    <p:commandButton value="Alumnos" onclick="PF('alumnos').show()" />
+                    
                     <p:dataTable value="#{egresadosController.eg}" var="eg"  id="egresados" >
-                        <p:column> 
+                        <p:column style="width: 40px;"> 
                             <p:rowToggler/>
                         </p:column>
                         <p:column headerText="Nombre">
@@ -70,7 +83,7 @@
                                 </p:panelGrid>
                             </p:rowExpansion>
 
-                              
+
 
                         </p:dataTable>
                         <p:contextMenu for="alumn" >
