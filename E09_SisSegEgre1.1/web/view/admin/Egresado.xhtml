@@ -26,8 +26,7 @@
 
             <ui:define name="content">
                 <h:form id="from">
-                    
-                    <p:dataTable value="#{egresadosController.eg}" var="eg"  id="egresados" >
+                    <p:dataTable value="#{egresadosController.eg}" var="eg" id="egresados">
                         <p:column style="width: 40px;"> 
                             <p:rowToggler/>
                         </p:column>
@@ -43,7 +42,6 @@
                         <p:column headerText="Celular">
                             <p:outputLabel value="#{eg.CEL_PER}" />
                         </p:column> 
-
 
                         <p:rowExpansion>
                             <p:panelGrid columns="2">

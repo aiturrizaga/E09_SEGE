@@ -21,7 +21,16 @@ public class User {
     private Date fch_fin;
     private String time_exp;
     
+    private String letraPerfil;
     private String template = "Template.xhtml";
+
+    public String getLetraPerfil() {
+        return letraPerfil;
+    }
+
+    public void setLetraPerfil(String letraPerfil) {
+        this.letraPerfil = letraPerfil;
+    }
 
     public String getTemplate() {
         return template;

@@ -19,6 +19,7 @@ public class UserController implements Serializable {
     User user = new User();
     private List<User> item;
     private User selected;
+    
 
     public void iniciarSesion() throws Exception {
         UserDao dao;
@@ -32,6 +33,7 @@ public class UserController implements Serializable {
                 HttpSession session = SessionUtils.getSession();
                 session.setAttribute("username", user);
                 listarExpUser();
+                letraPerfil();
                 switch (user.getTipo_user()) {
                     case 1:
                         FacesContext.getCurrentInstance().getExternalContext().redirect("/SEGE/faces/view/admin/dashboard.xhtml");
@@ -56,6 +58,15 @@ public class UserController implements Serializable {
         UserDao dao = new UserDao();
         try {
             item = dao.lstExperienciaUser(user);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
+    public void letraPerfil() throws Exception{
+        UserDao dao = new UserDao();
+        try {
+            dao.letraPerfil(user);
         } catch (Exception e) {
             throw e;
         }

@@ -80,5 +80,20 @@ public class UserDao extends Dao {
         }
         return lista;
     }
+    
+    public void letraPerfil(User us) throws Exception{
+        this.Conexion();
+        ResultSet rs;
+        try {
+            String sql = "SELECT UPPER(SUBSTR(NOM_PER,0,1)) AS LETRA FROM PERSONAS WHERE COD_PER = ?";
+            PreparedStatement ps = this.getCn().prepareStatement(sql);
+            ps.setInt(1, us.getCod_per());
+            rs = ps.executeQuery();
+            rs.next();
+            us.setLetraPerfil(rs.getString("LETRA"));
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
 }
