@@ -2,6 +2,7 @@ package com.vg.controller;
 
 import com.vg.dao.UserDao;
 import com.vg.model.User;
+import com.vg.services.Funciones;
 import com.vg.services.SessionUtils;
 import java.io.IOException;
 import javax.inject.Named;
@@ -25,7 +26,8 @@ public class UserController implements Serializable {
         UserDao dao;
         try {
             dao = new UserDao();
-            user = dao.validar(user.getNom_user(), user.getPass_user());
+            String clave = Funciones.encriptar(user.getPass_user());
+            user = dao.validar(user.getNom_user(), clave);
             if (user == null) {     //si no existe...
                 user = new User();
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "Usuario/Contraseña incorrecto"));
