@@ -8,6 +8,7 @@
     </h:head>
     <h:body>
         <h:form>
+            <p:growl id="msj" autoUpdate="true" showDetail="true"/>
             <h:panelGrid columns="1" id="panel">
                 <p:inputText id="username" value="#{userController.user.nom_user}" placeholder="Usuario"/>
                 <p:inputText value="#{userController.user.pass_user}" placeholder="Contraseña"/>

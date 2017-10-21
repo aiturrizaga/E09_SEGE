@@ -27,6 +27,7 @@ public class UserController implements Serializable {
             dao = new UserDao();
             user = dao.validar(user.getNom_user(), user.getPass_user());
             if (user == null) {     //si no existe...
+                user = new User();
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "Usuario/Contraseña incorrecto"));
             }
             else {
