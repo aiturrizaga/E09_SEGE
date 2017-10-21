@@ -59,20 +59,24 @@
                                             <li>
                                                 <div class="dw-user-box">
                                                     <div class="u-text">
-                                                        <h4>#{userController.user.nom_per} #{userController.user.ape_per}</h4>
-                                                        <p class="text-muted">#{userController.user.correo_per}</p>
+                                                        <h4 style="font-weight: bold">#{userController.user.nom_per} #{userController.user.ape_per}</h4>
+                                                        <p class="text-muted" style="font-weight: bold">#{userController.user.correo_per}</p>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="#"><i class="ti-user"></i> Mi Perfil</a></li>
-                                            <li><a href="#"><i class="ti-settings"></i> Configuración</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li>
-                                                <h:form>
-                                                    <p:commandButton value="Logout" actionListener="#{userController.logout()}"/>
-                                                </h:form>
-                                            </li>
+                                            <h:form>
+                                                <li>
+                                                    <p:commandButton value="Mi Perfil" icon="fa fa-user" class="look light btn-block" style="text-align: left"/>
+                                                </li>
+                                                <li>
+                                                    <p:commandButton value="Configuración" icon="fa fa-cog" class="look light btn-block" style="text-align: left"/>
+                                                </li>
+                                                <li>
+                                                    <p:commandButton value="Cerrar Sesión" icon="fa fa-power-off" actionListener="#{userController.logout()}" 
+                                                                     class="look light btn-block" style="text-align: left"/>
+                                                </li>
+                                            </h:form>
                                         </ul>
                                     </div>
                                 </li>
@@ -128,7 +132,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                                    <a class="waves-effect waves-dark" href="../content/capacitaciones.xhtml" aria-expanded="false">
                                         <i class="mdi mdi-seal"></i><span class="hide-menu">Capacitaciones </span>
                                     </a>
                                 </li>
